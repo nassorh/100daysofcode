@@ -43,7 +43,18 @@ object Sort {
         }while(flag)
         return Arrays.toString(array)
     }
-
+    fun insertionSort (array: Array<Int>):String {
+        for (i in 0 until array.size){
+            var j = i
+            while(j>0 && array[j-1] > array[j]){
+                var key = array[j]
+                array[j] = array[j-1]
+                array[j-1] = key
+                j--
+            }
+        }
+        return Arrays.toString(array)
+    }
 }
 fun main(args: Array<String>) {
     //Unsorted Array
@@ -60,7 +71,15 @@ fun main(args: Array<String>) {
     val sortedBBSF = Sort.bubbleSort(unSorted)
     val totalTimeBBSF = System.nanoTime() - startTimeBBSF
 
+    //Insertion sort with the flag
+    val startTimeIS= System.nanoTime()
+    val sortedIS = Sort.bubbleSort(unSorted)
+    val totalTimeIS = System.nanoTime() - startTimeIS
+
     //Time Taken
-    println("Sorted Array: $sortedBBS Time taken in milliseconds to complete Bubble Sort with the Flag $totalTimeBBS")
-    println("Sorted Array: $sortedBBSF Time taken in milliseconds to complete Bubble Sort with the Flag $totalTimeBBSF")
+    println("Sorted Array: $sortedBBS Time taken in milliseconds to complete Bubble Sort without the " +
+            "Flag: $totalTimeBBS")
+    println("Sorted Array: $sortedBBSF Time taken in milliseconds to complete Bubble Sort with the "+
+            "Flag: $totalTimeBBSF")
+    println("Sorted Array: $sortedIS Time taken in milliseconds to complete Insertion Sort with the Flag: $startTimeIS")
 }
