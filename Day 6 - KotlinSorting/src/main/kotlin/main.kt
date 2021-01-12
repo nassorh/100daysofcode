@@ -1,7 +1,7 @@
 import java.util.*
 import kotlin.reflect.typeOf
 
-object Sort {
+object Sort {//
     //This is breaking the code
     fun swap(array: Array<Int>, firstIndex: Int, secondIndex: Int){
         val temp = array[firstIndex]
@@ -17,7 +17,7 @@ object Sort {
                 //Compare the first and second element
                 //If the first element is greater than the second element
                 if (array[x] > array[x+1]) {
-                    //swap them
+                    //swap themo
                     val temp = array[x]
                     array[x] = array[x+1]
                     array[x+1] = temp
