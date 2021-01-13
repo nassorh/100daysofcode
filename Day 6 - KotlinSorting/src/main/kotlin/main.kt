@@ -129,11 +129,11 @@ object Sort {//
         return i+1
     }
 
+    fun
 }
 
 fun main(args: Array<String>) {
     //Unsorted Array
-    //val SmallUnsorted = arrayOf(1,4,5,6,1,2)
     val SmallUnsorted = arrayOf(1,2,7,2,9,3,7,8)
     val MediumUnsorted = arrayOf(1,4,5,6,1,2,7,3,6,4,9,0)
     val LargeUnsorted = arrayOf(1,4,5,6,1,2,3,7,8,2,3,5,1,2,7,3,6,4,9,0,5,6,1,2,3,7)
