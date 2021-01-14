@@ -120,7 +120,7 @@ object Sort {//
                 array[i] = array[loop]
                 array[loop] = temp
 
-            }
+            }//
             loop++
         }
         val temp = array[i+1]
