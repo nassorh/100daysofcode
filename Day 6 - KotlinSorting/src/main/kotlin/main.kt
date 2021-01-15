@@ -129,7 +129,19 @@ object Sort {//
         return i+1
     }
 
-    fun
+    fun merge(array: Array<Int>,left_index: Int,right: Int,middle: Int){
+
+    }
+
+    fun mergeSort(array: Array<Int>, left_index: Int, right_index: Int){
+        if (left_index >= right_index){
+            return
+        }
+        var middle = (left_index + right_index) // 2
+        mergeSort(array,left_index,middle)
+        mergeSort(array,middle+1,right_index)
+        merge(array,left_index,middle)
+    }
 }
 
 fun main(args: Array<String>) {
