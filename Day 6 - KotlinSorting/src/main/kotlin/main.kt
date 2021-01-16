@@ -1,15 +1,14 @@
 import java.util.*
 import kotlin.reflect.typeOf
 
-object Sort {//
-    //This is breaking the code
+object Sort {
     fun swap(array: Array<Int>, firstIndex: Int, secondIndex: Int){
         val temp = array[firstIndex]
         array[firstIndex] = array[secondIndex]
         array[secondIndex] = temp
     }
 
-    fun bubbleSort(array: Array<Int>): String {
+    fun bubbleSort(array: Array<Int>) {
         //Loop through the array
         for (i in 0 until array.size) {
             //Loop through array size - 1 this is to compare adjacent items
@@ -25,7 +24,6 @@ object Sort {//
                 }
             }
         }
-        return Arrays.toString(array)
     }
 
     //Selection Sort
@@ -52,16 +50,13 @@ object Sort {//
             for (x in 0 until array.size-1){
                 //Compare the first and second element
                 //If the first element is greater than the second element
-                    println("Loop count $x\n")
                 if(array[x] > array[x+1]){
-                    print("Swap\n")
                     //swap them and set swapping to true
                     val temp = array[x]
                     array[x] = array[x+1]
                     array[x+1] = temp
                     flag = true
                     val a = Arrays.toString(array)
-                    println("$a\n")
                 }
                 //else move to the next element
             }
@@ -129,24 +124,72 @@ object Sort {//
         return i+1
     }
 
-    fun merge(array: Array<Int>,left_index: Int,right: Int,middle: Int){
+    fun merge(list: List<Int>,left_index: Int,right_index: Int,middle: Int){
+        //Split into left and right array
+        val left_copy = list.subList(0,middle)
+        val right_copy = list.subList(middle+1,right_index)
 
+        //Pointers
+        var left_copy_index = 0
+        var right_copy_index = 0
+        var sorted_index = left_index //Pointer for the original list
+
+        //Loop through both arrays
+        while(left_copy_index<left_copy.size && right_copy_index<right_copy.size){
+            //Compare the left side to the right
+            if (left_copy[left_copy_index] <= right_copy[right_copy_index]){
+                //If the left value is less than right add it to the sorted list
+                list.toMutableList().add(sorted_index,left_copy[left_copy_index])
+                left_copy_index ++
+            }else{
+                //If the left value is right than left add it to the sorted list
+                list.toMutableList().add(sorted_index,right_copy[right_copy_index])
+                right_copy_index ++
+            }
+            sorted_index ++
+        }
+        //We ran out of elements either in the left or right not both
+        //Therefore add all the remaining elements and add them to the list
+        val size1 = list.size
+        while (left_copy_index < left_copy.size){
+            println("Sorted Index $sorted_index Left_Copy_Index: $left_copy_index Size: $size1")
+            list.toMutableList().add(sorted_index,left_copy[left_copy_index])
+            left_copy_index ++
+            sorted_index ++
+        }
+
+        while (right_copy_index < right_copy.size){
+            list.toMutableList().add(sorted_index,right_copy[right_copy_index])
+            right_copy_index ++
+            sorted_index ++
+        }
     }
 
-    fun mergeSort(array: Array<Int>, left_index: Int, right_index: Int){
+
+
+    fun mS(list: List<Int>,left_index: Int, right_index: Int){
         if (left_index >= right_index){
             return
         }
-        var middle = (left_index + right_index) // 2
-        mergeSort(array,left_index,middle)
-        mergeSort(array,middle+1,right_index)
-        merge(array,left_index,middle)
+        var middle = (left_index+right_index)/ 2 //Middle
+        mS(list,left_index,middle)
+        mS(list,middle+1,right_index)
+        merge(list,left_index,right_index,middle)
+    }
+
+    fun mergeSort(list: List<Int>){
+        mS(list,0,list.size-1)
     }
 }
 
 fun main(args: Array<String>) {
     //Unsorted Array
     val SmallUnsorted = arrayOf(1,2,7,2,9,3,7,8)
+    println(String.format("Unsorted Small Array: %s",Arrays.toString(SmallUnsorted)))
+    Sort.bubbleSort(SmallUnsorted)
+    println(String.format("Sorted Small Array: %s",Arrays.toString(SmallUnsorted)))
+
+
     val MediumUnsorted = arrayOf(1,4,5,6,1,2,7,3,6,4,9,0)
     val LargeUnsorted = arrayOf(1,4,5,6,1,2,3,7,8,2,3,5,1,2,7,3,6,4,9,0,5,6,1,2,3,7)
     println(String.format("Unsorted Small Array: %s",Arrays.toString(SmallUnsorted)))
@@ -184,6 +227,11 @@ fun main(args: Array<String>) {
     Sort.quickSort(MediumUnsorted)
     Sort.quickSort(LargeUnsorted)
     */
+
+    //Merge Sort
+    Sort.mergeSort(listOf(*SmallUnsorted))
+    Sort.mergeSort(listOf(*MediumUnsorted))
+    Sort.mergeSort(listOf(*LargeUnsorted))
 
 
     println(String.format("Sorted Small Array: %s",Arrays.toString(SmallUnsorted)))
