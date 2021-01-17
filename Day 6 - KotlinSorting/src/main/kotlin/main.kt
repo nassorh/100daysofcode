@@ -171,7 +171,7 @@ object Sort {
         if (left_index >= right_index){
             return
         }
-        var middle = (left_index+right_index)/ 2 //Middle
+        var middle = (left_index+right_index)/ 2 //Middle//
         mS(list,left_index,middle)
         mS(list,middle+1,right_index)
         merge(list,left_index,right_index,middle)
