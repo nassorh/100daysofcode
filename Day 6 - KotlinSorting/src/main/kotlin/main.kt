@@ -126,7 +126,7 @@ object Sort {
 
     fun merge(list: List<Int>,left_index: Int,right_index: Int,middle: Int){
         //Split into left and right array
-        val left_copy = list.subList(0,middle)
+        val left_copy = list.subList(left_index,middle)
         val right_copy = list.subList(middle+1,right_index)
 
         //Pointers
@@ -135,6 +135,8 @@ object Sort {
         var sorted_index = left_index //Pointer for the original list
 
         //Loop through both arrays
+        val leftCopy = left_copy.size
+        val rightCopy = right_copy.size
         while(left_copy_index<left_copy.size && right_copy_index<right_copy.size){
             //Compare the left side to the right
             if (left_copy[left_copy_index] <= right_copy[right_copy_index]){
@@ -152,7 +154,6 @@ object Sort {
         //Therefore add all the remaining elements and add them to the list
         val size1 = list.size
         while (left_copy_index < left_copy.size){
-            println("Sorted Index $sorted_index Left_Copy_Index: $left_copy_index Size: $size1")
             list.toMutableList().add(sorted_index,left_copy[left_copy_index])
             left_copy_index ++
             sorted_index ++
