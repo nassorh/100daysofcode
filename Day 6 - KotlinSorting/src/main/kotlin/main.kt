@@ -16,10 +16,7 @@ object Sort {
                 //Compare the first and second element
                 //If the first element is greater than the second element
                 if (array[x] > array[x+1]) {
-                    //swap themo
-                    val temp = array[x]
-                    array[x] = array[x+1]
-                    array[x+1] = temp
+                    swap(array,x,x+1)
                 //else move to the next element
                 }
             }
@@ -52,11 +49,8 @@ object Sort {
                 //If the first element is greater than the second element
                 if(array[x] > array[x+1]){
                     //swap them and set swapping to true
-                    val temp = array[x]
-                    array[x] = array[x+1]
-                    array[x+1] = temp
+                    swap(array,x,x+1)
                     flag = true
-                    val a = Arrays.toString(array)
                 }
                 //else move to the next element
             }
@@ -71,9 +65,7 @@ object Sort {
             //Compare current position with elements to left if the left element is bigger than the current
             while(j>0 && array[j-1] > array[j]){
                 //Swap them
-                val temp = array[j-1]
-                array[j-1] = array[j]
-                array[j] = temp
+                swap(array,j-1,j)
                 j--
             }
         }
@@ -83,9 +75,7 @@ object Sort {
     fun selectionSort(array: Array<Int>): String {
         for(i in 0 until array.size){
             val index = indexOfMinimum(array,i)
-            val temp = array[i]
-            array[i] = array[index]
-            array[index] = temp
+            swap(array,i,index)
         }
         return Arrays.toString(array)
     }
@@ -111,16 +101,11 @@ object Sort {
         while(loop<right){
             if (array[loop] < pivot){
                 i++
-                val temp = array[i]
-                array[i] = array[loop]
-                array[loop] = temp
-
-            }//
+                swap(array,i,loop)
+            }
             loop++
         }
-        val temp = array[i+1]
-        array[i+1] = array[right]
-        array[right] = temp
+        swap(array,i+1,right)
         return i+1
     }
 
@@ -227,12 +212,15 @@ fun main(args: Array<String>) {
     Sort.quickSort(SmallUnsorted)
     Sort.quickSort(MediumUnsorted)
     Sort.quickSort(LargeUnsorted)
-    */
+
 
     //Merge Sort
     Sort.mergeSort(listOf(*SmallUnsorted))
     Sort.mergeSort(listOf(*MediumUnsorted))
     Sort.mergeSort(listOf(*LargeUnsorted))
+    */
+
+    //Heap Sort
 
 
     println(String.format("Sorted Small Array: %s",Arrays.toString(SmallUnsorted)))
