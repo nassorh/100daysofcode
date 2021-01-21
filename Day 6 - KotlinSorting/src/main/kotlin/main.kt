@@ -113,7 +113,7 @@ object Sort {
         //Split into left and right array
         val left_copy = list.subList(left_index,middle)/
         val right_copy = list.subList(middle+1,right_index)
-
+//
         //Pointers
         var left_copy_index = 0
         var right_copy_index = 0
