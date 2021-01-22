@@ -115,7 +115,7 @@ object Sort {
         val right_copy = list.subList(middle+1,right_index)
 //
         //Pointers
-        var left_copy_index = 0
+        var left_copy_index = 0/
         var right_copy_index = 0
         var sorted_index = left_index //Pointer for the original list
 
