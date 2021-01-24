@@ -111,11 +111,11 @@ object Sort {
 
     fun merge(list: List<Int>,left_index: Int,right_index: Int,middle: Int){
         //Split into left and right array
-        val left_copy = list.subList(left_index,middle)/
+        val left_copy = list.subList(left_index,middle)
         val right_copy = list.subList(middle+1,right_index)
 ///
         //Pointers
-        var left_copy_index = 0/
+        var left_copy_index = 0
         var right_copy_index = 0
         var sorted_index = left_index //Pointer for the original list
 
