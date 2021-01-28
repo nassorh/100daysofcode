@@ -22,6 +22,9 @@ class searchAlgorithms():
             #Else focus on the first half
             return self.binarySearch(array,target,mid+1,end)
 
+    def JumpSearch(self):
+        pass
+
 
 obj = searchAlgorithms()
 array = [1,2,3,4,5,6]
