@@ -11,7 +11,7 @@ class searchAlgorithms():
             return None
         #Compare to the middle
         mid = (start+end)//2
-        #If equal return middle index
+        #If equal return middle index#
         if target == array[mid]:
             return mid
         #Else compare the size with the middle
@@ -22,7 +22,7 @@ class searchAlgorithms():
             #Else focus on the first half
             return self.binarySearch(array,target,mid+1,end)
 
-    def JumpSearch(self):
+    def jumpSearch(self):
         pass
 
 
