@@ -23,6 +23,7 @@ class searchAlgorithms():
             return self.binarySearch(array,target,mid+1,end)
 
     def jumpSearch(self):
+        #pass
         pass
 
 
