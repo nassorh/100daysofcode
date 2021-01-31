@@ -26,12 +26,31 @@ class searchAlgorithms():
         #pass
         pass
 
+    def countingSort(self,myList):
+        #Counts the number of elements in the array
+        count = [0] * (max(myList)+1)
+        for num in myList:
+            count[num] += 1
+
+        #Sort the array
+        sortArr = []
+        for i in range(len(count)):
+            print("I",i,"Count I:",count[i])
+            while count[i] != 0:
+                print("While")
+                print(count[i])
+                count[i] -= 1
+                sortArr.append(i)
+
+        return sortArr
 
 obj = searchAlgorithms()
-array = [1,2,3,4,5,6]
+array = [2,3,2,7,4,5,8]
 
 print(obj.linearSearch(array,6))
 print(obj.linearSearch(array,7))
 print(obj.binarySearch(array,6,0,len(array)-1))
 print(obj.binarySearch(array,7,0,len(array)-1))
+print(obj.countingSort(array))
+
 
