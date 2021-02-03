@@ -16,13 +16,46 @@ class Stack():
             return -1
     
     def pop(self):
-        self.capacity -= 1 
+        if self.capacity != 0:
+            self.capacity -= 1
+            return self.stack.pop()
+        else:
+            return -1
     
     def isEmpty(self):
-        pass
+        if self.capacity != 0:
+            return False
+        else:
+            return True
 
     def peek(self):
-        pass
+        return self.stack[-1]
 
     def toString(self):
-        pass
+        print(self.stack)
+
+#Init
+stack = Stack(10)
+
+#Attributes test
+print(stack.top)
+print(stack.maxSize)
+print(stack.capacity)
+
+#Empty test
+print(stack.isEmpty())
+
+#Push test/toString test
+for x in range(10):
+    stack.push(x)
+stack.toString()
+
+#Empty test
+print(stack.isEmpty())
+
+#Peek test
+print(stack.peek())
+
+#Pop test
+print(stack.pop())
+stack.toString()
