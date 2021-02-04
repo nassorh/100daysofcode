@@ -55,7 +55,7 @@ q.toString()
 print(q.rear())
 q.toString()
 
-#rear
+#dequeue
 print(q.dequeue())
 q.toString()
 
