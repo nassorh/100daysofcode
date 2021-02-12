@@ -27,21 +27,37 @@ class searchAlgorithms():
         pass
 
     def countingSort(self,myList):
-        #Counts the number of elements in the array
+        """
+        Takes the largest number in the array and uses it as the array size
+        to create the array
+        """
         count = [0] * (max(myList)+1)
+        print("Count",count)
+        """
+        #Loops throught the unsorted array counts the
+        amount of times a number appears
+        """
         for num in myList:
+            print("num",num)
             count[num] += 1
+            print("Count",count)
 
-        #Sort the array
+        #Sorted array
         sortArr = []
+        print("Sorted Array",sortArr)
+        #Loops through the count array
         for i in range(len(count)):
-            print("I",i,"Count I:",count[i])
+            print("I",i)
+            #While the count is larger than zero 
             while count[i] != 0:
-                print("While")
-                print(count[i])
+                #Decrease the count by 1
                 count[i] -= 1
+                print("Count",count)
+                #it appends to the sorted array
                 sortArr.append(i)
-
+                print("Sorted Array",sortArr)
+                 
+        #Returns the sorted array
         return sortArr
 
 obj = searchAlgorithms()
